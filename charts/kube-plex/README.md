@@ -48,5 +48,8 @@ The following tables lists the configurable parameters of the Plex chart and the
 | `proxy.http`           | HTTP_PROXY value 'http://proxy.lan:8080'  | `{}` |
 | `proxy.https`           | HTTPS_PROXY value 'http://proxy.lan:8080'  | `{}` |
 | `proxy.noproxy`           | NO_PROXY value 'localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/12'  | `{}` |
-
+| `additionalVolumeClaims`           | List of Objects for PersistentVolumeClaims that should be mounted to PMS container   | `{}` |
+| `additionalVolumeClaims[].name`           |  Name of the VolumeMount & Volume 'nfs-example' | `{}` |
+| `additionalVolumeClaims[].pvc`           | Name of the PersistentVolumeClaim which needs to be existing @K8s 'nfs-example-pvc' | `{}` |
+| `additionalVolumeClaims[].path`           | Path where the Volume should be mounted to '/nfs/example-share'  | `{}` |
 Read through the [values.yaml](values.yaml) file. It has several commented out suggested values.
