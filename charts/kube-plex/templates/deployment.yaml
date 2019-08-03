@@ -145,6 +145,10 @@ spec:
         {{ end }}
         - name: shared
           mountPath: /shared
+        {{- range $volume := .Values.additionalVolumeClaims }}
+        - name: {{ $volume.name }}
+          mountPath: {{ $volume.path }}
+        {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
     {{- if .Values.nodeSelector }}
@@ -179,3 +183,8 @@ spec:
 {{- end }}
       - name: shared
         emptyDir: {}
+{{- range $volume := .Values.additionalVolumeClaims }}
+      - name: {{ $volume.name }}
+        persistentVolumeClaim:
+           claimName: "{{ $volume.pvc }}"
+{{- end }}

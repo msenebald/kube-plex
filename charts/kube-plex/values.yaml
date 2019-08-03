@@ -125,3 +125,11 @@ proxy:
   # http: "http://proxy:8080"
   # https: "https://proxy:8080"
   # noproxy: "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/12"
+
+additionalVolumeClaims: {}
+  # this can be used to add more pvc to the pms container like nfs shares
+  # currently it is only working with existing pvc
+  # - name: sharename # the name that is used for the volume/volumemount
+  #   pvc: example-nfs-pvc # name of the PersistentVolumeClaim 
+  #   path: /nfs/example-share # the path the share should be mounted to in the pms container
+
